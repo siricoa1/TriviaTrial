@@ -1,0 +1,147 @@
+/* Root container Root container Root container Root container Root container */
+#rootDivHome{
+    font-family: "Tagesschrift", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    --c1: #32CBFF;
+    --c2: #00A5E0;
+    --c3: #89A1EF;
+    --c4: #EF9CDA;
+    --c5: #FECEF1;
+    --c6: var(--c4);
+    --c7: var(--c3);
+    --c8: var(--c2);
+    --c9: var(--c1);
+
+    --loop-duration: 60s;
+    --blur-size: 120px;
+    --layer-opacity: 0.95;
+    z-index: -1;
+}
+
+#rootDivQuiz{
+    font-family: "Tagesschrift", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    --c1: #000000;
+    --c2: #22211c;
+    --c3: #272727;
+    --c4: #383332;
+    --c5: #444444;
+    --c6: var(--c4);
+    --c7: var(--c3);
+    --c8: var(--c2);
+    --c9: var(--c1);
+
+    --loop-duration: 60s;
+    --blur-size: 120px;
+    --layer-opacity: 0.95;
+    z-index: -1;
+}
+
+.atmo-gradient{
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: transparent;
+}
+
+.atmo-gradient::before,
+.atmo-gradient::after{
+    content: "";
+    position: absolute;
+    inset: -20%;
+    will-change: transform, opacity, background-position;
+    filter: blur(var(--blur-size));
+    opacity: var(--layer-opacity);
+    mix-blend-mode: normal;
+    transform: translate3d(0,0,0);
+    background-repeat: no-repeat;
+    background-size: 300% 300%;
+    border-radius: 8px;
+}
+
+.atmo-gradient::before{
+    background-image:
+        radial-gradient(40% 60% at 10% 20%,
+        var(--c1) 0%,
+        var(--c2) 20%,
+        var(--c3) 45%,
+        var(--c4) 70%,
+        var(--c5) 100%),
+        radial-gradient(50% 70% at 85% 80%,
+        var(--c9) 0%,
+        var(--c8) 18%,
+        var(--c7) 40%,
+        var(--c6) 68%,
+        var(--c5) 100%);
+    animation: moveA var(--loop-duration) linear infinite;
+}
+
+.atmo-gradient::after{
+    background-image:
+        radial-gradient(50% 50% at 25% 75%,
+        var(--c3) 0%,
+        var(--c4) 30%,
+        var(--c5) 60%,
+        var(--c6) 85%,
+        rgba(255,255,255,0) 100%),
+        radial-gradient(45% 55% at 70% 25%,
+        var(--c2) 0%,
+        var(--c1) 18%,
+        var(--c3) 45%,
+        var(--c4) 80%,
+        rgba(255,255,255,0) 100%);
+    animation: moveB calc(var(--loop-duration) * 1.05) linear infinite;
+    opacity: 0.98;
+    mix-blend-mode: screen;
+}
+
+@keyframes moveA{
+    0%   { background-position:   0%  0%; }
+    50%  { background-position:  30% 70%; }
+    100% { background-position:   0%  0%; }
+}
+
+@keyframes moveB{
+    0%   { background-position:  10% 40%; }
+    50%  { background-position:  60% 10%; }
+    100% { background-position:  10% 40%; }
+}
+
+@media (max-width: 800px){
+    :root{ --blur-size: 90px; --loop-duration: 80s; }
+}
+
+/* Homepage Homepage Homepage Homepage Homepage Homepage Homepage Homepage Homepage */
+
+.homeContainer {
+    position: relative;
+    z-index: 1;
+}
+
+#homeComponentsDiv {
+    margin-top: 50px;
+}
+
+#btnContainerHome {
+    display: flex;
+    justify-content: center;
+}
+
+/*  Question Question Question Question Question Question Question Question Question */
+
+.questionDiv {
+    background-color: rgba(255, 255, 255, 0.575);
+    text-align: center;
+    border-radius: .25rem;
+    padding: 25px;
+}
+
+.questionBtnDiv {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
