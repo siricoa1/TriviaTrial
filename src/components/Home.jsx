@@ -62,7 +62,7 @@ const Home = () => {
         <div id="rootDivHome" className="vh-100">
             <div className="atmo-gradient"></div>
             <div className="w-75 p-3 mx-auto homeContainer">
-                <h1>Welcome to Quiz Game!</h1>
+                <h1>Welcome to Trivia Trial!</h1>
                 <br></br>
                 <h4>The rules are simple, select a difficulty and category and hit start! Once the game begins,</h4>
                 <h4>you will be given time to answer each question. Your total score will then be displayed on our</h4>
