@@ -23,11 +23,11 @@
     font-family: "Tagesschrift", system-ui;
     font-weight: 400;
     font-style: normal;
-    --c1: #000000;
-    --c2: #22211c;
-    --c3: #272727;
-    --c4: #383332;
-    --c5: #444444;
+    --c1: #e26b6b;
+    --c2: #be4862;
+    --c3: #a70924;
+    --c4: #5c032f;
+    --c5: #2b0116;
     --c6: var(--c4);
     --c7: var(--c3);
     --c8: var(--c2);
@@ -144,4 +144,17 @@
     margin-top: 50px;
     display: flex;
     justify-content: space-evenly;
+}
+
+.timerDiv {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.countdownText {
+    background-color: rgba(255, 255, 255, 0.575);
+    border-radius: .25rem;
+    padding: 25px;
+    width: fit-content;
 }
