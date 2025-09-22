@@ -79,7 +79,7 @@ const Home = () => {
                 <div id='homeComponentsDiv'>
                     <DifficultyDropdown sendBackData={handleDiffData}></DifficultyDropdown>
                     <CategoryDropdown sendBackData={handleCatData}></CategoryDropdown>
-                    <div id='btnContainerHome'>
+                    <div className='btnDiv'>
                         <button onClick={handleStart} className='btn btn-primary mt-3 btn-lg'>Start!</button>
                     </div>
                 </div>

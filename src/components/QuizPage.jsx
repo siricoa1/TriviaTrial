@@ -1,15 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Question from "./Question";
 
 const QuizPage = () => {
 
     const location = useLocation();
+    const navigate = useNavigate();
     const { questions, diff} = location.state || {};
     const [curQuestion, setCurQuestion] = useState(0);
     const [numCorrect, setCorrect] = useState(0);
+
+    console.log("here are the questions: ",questions.length);
+
+    if(questions.length < 1){
+        return (
+            <div id="rootDivQuiz" className="vh-100">
+                <div className="atmo-gradient"></div>
+                <div className="w-75 p-3 mx-auto quizContainer">
+                    <h1>Questions unavailable for this catagory/difficulty, returning home.</h1>
+                    {setTimeout(() => {
+                        navigate('/');
+                    }, 3000)}
+                </div>
+            </div>
+        );
+    }
     
-    const initialTime = diff === "hard" ? 15 : diff === "medium" ? 20 : 30;
+    const initialTime = diff === "hard" ? 10 : diff === "medium" ? 20 : 30;
     
     const [timeLeft, setTime] = useState(initialTime);
 
@@ -36,6 +53,9 @@ const QuizPage = () => {
         return () => clearTimeout(timerId);
     }, [timeLeft, initialTime]);
 
+    function handleNavigationHome() {
+        navigate('/');
+    }
 
     if (curQuestion >= questions.length) {
         return (
@@ -44,6 +64,9 @@ const QuizPage = () => {
                 <div className="w-75 p-3 mx-auto quizContainer">
                     <div className='timerDiv'>
                         <h1  className="countdownText">Quiz Over! You got {numCorrect} correct.</h1>
+                    </div>
+                    <div className='btnDiv'>
+                        <button onClick={handleNavigationHome} className="btn btn-primary mt-3 btn-lg">Play Again?</button>
                     </div>
                 </div>
             </div>
