@@ -10,8 +10,6 @@ const QuizPage = () => {
     const [curQuestion, setCurQuestion] = useState(0);
     const [numCorrect, setCorrect] = useState(0);
 
-    console.log("here are the questions: ",questions.length);
-
     if(questions.length < 1){
         return (
             <div id="rootDivQuiz" className="vh-100">

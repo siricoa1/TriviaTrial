@@ -24,7 +24,6 @@ const Home = () => {
                 return res.json();
             })
             .then((data) => {
-                console.log("Fetched questions:", data);
                 navigate('/Quiz', {state:{questions: data.results, diff: diffData, cat: catData}});
             })
             .catch((error) => {
@@ -41,7 +40,6 @@ const Home = () => {
                 return res.json();
             })
             .then((data) => {
-                console.log("Fetched questions:", data);
                 navigate('/Quiz', {state:{questions: data.results, diff: diffData, cat: catData}});
             })
             .catch((error) => {
