@@ -56,14 +56,12 @@ const Question = ({ currentQuestion, correctCallback, numberCallback }) => {
     }
 
     return(
-        <div className="w-75 p-3 mx-auto questionDiv">
-            <h1>{decodeHTMLEntities(questionAsked)}</h1>
-            <div className="questionBtnDiv">
-                <ul>
-                    {possibleAnswers.map((ans, index) => (
-                        <li key={index}><button onClick={() => handleAnswer(index)} className="btn btn-dark mt-3 btn-lg">{decodeHTMLEntities(ans)}</button></li>
-                    ))}
-                </ul>
+        <div className="w-75 mx-auto questionDiv">
+            <h1 className='questionH1'>{decodeHTMLEntities(questionAsked)}</h1>
+            <div className="d-flex flex-column align-items-center pb-3 pb-md-5 questionBtnDiv">
+                {possibleAnswers.map((ans, index) => (
+                    <button onClick={() => handleAnswer(index)} className="btn btn-dark mt-3 btn-lg">{decodeHTMLEntities(ans)}</button>
+                ))}
             </div>
         </div>
     );

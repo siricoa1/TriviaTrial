@@ -137,6 +137,12 @@
     background-color: rgba(255, 255, 255, 0.575);
     text-align: center;
     border-radius: .25rem;
+}
+
+.questionH1 {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    background-color: #00A5E0;
     padding: 25px;
 }
 
@@ -153,7 +159,7 @@
 }
 
 .countdownText {
-    background-color: rgba(255, 255, 255, 0.575);
+    background-color: #00A5E0;
     border-radius: .25rem;
     padding: 25px;
     width: fit-content;
