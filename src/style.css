@@ -153,16 +153,39 @@
 }
 
 .timerDiv {
-    display: flex;
-    justify-content: center;
     text-align: center;
+    position: relative;
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+.countDownBar {
+    border-radius: .25rem;
+    height: 125px;
+    background-color: #00A5E0;
+    position: absolute;
+    z-index: 1;
+    transition: width 1s linear;
+}
+
+.countDownBarEmpty {
+    border-radius: .25rem;
+    height: 125px;
+    background-color: rgba(255, 255, 255, 0.315);
+    position: absolute;
+    width: 100%;
+    z-index: 0;
 }
 
 .countdownText {
-    background-color: #00A5E0;
-    border-radius: .25rem;
     padding: 25px;
-    width: fit-content;
+    height: 125px;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Media Query Media Query Media Query Media Query Media Query Media Query Media Query */

@@ -24,9 +24,12 @@ const QuizPage = () => {
         );
     }
     
-    const initialTime = diff === "hard" ? 10 : diff === "medium" ? 20 : 30;
+    const initialTime = diff === "hard" ? 10 : diff === "medium" ? 20 : 25;
+    const initialBarWidth = 100;
+    
     
     const [timeLeft, setTime] = useState(initialTime);
+    const [barWidth, setBarWidth] = useState(initialBarWidth);
 
     function handleCurrentQuestion(data) {
         setTime(initialTime);
@@ -50,6 +53,30 @@ const QuizPage = () => {
 
         return () => clearTimeout(timerId);
     }, [timeLeft, initialTime]);
+
+    useEffect(() => {
+        let timerId;
+
+        if (barWidth <= 0){
+            setBarWidth(initialBarWidth);
+            return;
+        };
+        if (diff === "hard") {
+            timerId = setTimeout(() => {
+                setBarWidth(barWidth - 10);
+            }, 1000);
+        } else if(diff === "medium"){
+            timerId = setTimeout(() => {
+                setBarWidth(barWidth - 5);
+            }, 1000);
+        } else {
+            timerId = setTimeout(() => {
+                setBarWidth(barWidth - 4);
+            }, 1000);
+        }
+
+        return () => clearTimeout(timerId);
+    }, [barWidth, initialBarWidth]);
 
     function handleNavigationHome() {
         navigate('/');
@@ -75,8 +102,10 @@ const QuizPage = () => {
         <div id="rootDivQuiz" className="vh-100">
             <div className="atmo-gradient"></div>
             <div className="w-75 p-3 mx-auto quizContainer">
-                <div className="timerDiv">
+                <div className="w-75 mx-auto timerDiv">
                     <h1 className="countdownText">Time Left: {timeLeft}</h1>
+                    <div className='countDownBar' style={{ width: `${barWidth}%` }}></div>
+                    <div className="countDownBarEmpty"></div>
                 </div>
                 <br></br>
                 <Question 

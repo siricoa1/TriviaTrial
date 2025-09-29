@@ -68,7 +68,7 @@ const Home = () => {
                 <br></br>
                 <h4>The difficulty also sets the ammount of time given to answer:</h4>
                 <ol>
-                    <h5><li>Easy: 30 seconds</li></h5>
+                    <h5><li>Easy: 25 seconds</li></h5>
                     <h5><li>Medium: 20 seconds</li></h5>
                     <h5><li>Hard: 10 seconds</li></h5>
                 </ol>
