@@ -33,6 +33,7 @@ const QuizPage = () => {
 
     function handleCurrentQuestion(data) {
         setTime(initialTime);
+        setBarWidth(initialBarWidth);
         setCurQuestion(prev => prev + data);
     };
 
@@ -48,7 +49,7 @@ const QuizPage = () => {
         };
 
         const timerId = setTimeout(() => {
-        setTime(timeLeft - 1);
+            setTime(timeLeft - 1);
         }, 1000);
 
         return () => clearTimeout(timerId);
